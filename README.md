@@ -1,7 +1,7 @@
 # 18F Client Event Tracker
 
 
-Environments: [Production](https://client-events.app.cloud.gov)
+Event Tracking Environment: [Production](https://client-events.app.cloud.gov)
 
 
 ## Introduction
@@ -24,7 +24,7 @@ Generate a `visit_token` and `visitor_token` as [UUIDs](http://en.wikipedia.org/
 
 Send these values in the `Ahoy-Visit` and `Ahoy-Visitor` headers with all requests.
 
-Send a `POST` request to `/ahoy/visits` with:
+Send a `POST` request to `https://client-events.app.cloud.gov/ahoy/visits` with:
 
 - platform - `web`, `iOS`, etc.
 - app_version - `1.0.0`
@@ -34,7 +34,7 @@ After 4 hours of inactivity, create another visit and use the updated visit id.
 
 ### Events
 
-Send a `POST` request as `Content-Type: application/json` to `/ahoy/events` with:
+Send a `POST` request as `Content-Type: application/json` to `https://client-events.app.cloud.gov/ahoy/events` with:
 
 - id - `5aea7b70-182d-4070-b062-b0a09699ad5e` - UUID
 - name - `Viewed item`
@@ -44,3 +44,13 @@ Send a `POST` request as `Content-Type: application/json` to `/ahoy/events` with
 - user token (depends on your authentication framework)
 
 Use an array to pass multiple events at once.
+
+### Monitor
+
+The event review dashboard is based on [Blazer](https://github.com/ankane/blazer). Blazer allows you to explore the stored events with SQL, easily create charts and dashboards, and share them with your team.
+
+[See more about Blazer](https://github.com/ankane/blazer)
+
+[Production](https://client-events.app.cloud.gov/blazer)
+
+[![Screenshot](https://blazerme.herokuapp.com/assets/screenshot-6ca3115a518b488026e48be83ba0d4c9.png)](https://client-events.app.cloud.gov/blazer)
