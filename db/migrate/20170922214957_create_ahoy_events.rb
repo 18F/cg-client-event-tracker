@@ -1,4 +1,4 @@
-class CreateAhoyEvents < ActiveRecord::Migration
+class CreateAhoyEvents < ActiveRecord::Migration[5.1]
   def change
     create_table :ahoy_events do |t|
       t.integer :visit_id
@@ -8,7 +8,7 @@ class CreateAhoyEvents < ActiveRecord::Migration
       # add t.string :user_type if polymorphic
 
       t.string :name
-      t.text :properties
+      t.jsonb :properties
       t.timestamp :time
     end
 
